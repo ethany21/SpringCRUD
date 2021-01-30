@@ -24,13 +24,19 @@
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
+                <th>Action</th>
+
 
             <tr th:each="Customer : ${customers}">
                 <td th:text ="${Customer.firstName}" >1</td>
                 <td th:text ="${Customer.lastName}" >1</td>
                 <td th:text ="${Customer.email}" >1</td>
+                <td>
+                    <a th:href="@{/customer/showFormForUpdate(customerId=${Customer.id})}" class="btn btn-info btm-sm">Update</a>
+                    <a th:href="@{/customer/delete(customerId=${Customer.id})}"
+                       onclick="if (!(confirm('Are you sure for deleting this?'))) return false" class="btn btn-info btm-sm">Delete</a>
+                </td>
             </tr>
-
             </tr>
         </table>
     </div>
