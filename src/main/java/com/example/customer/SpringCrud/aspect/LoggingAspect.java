@@ -24,14 +24,13 @@ public class LoggingAspect {
 
     @Before("GetMapping()")
     public void beforeGetMapping(JoinPoint joinPoint){
-       logger.info("=====================AspectJ Test: GetMapping started");
+       logger.info("AspectJ Test: GetMapping started");
+       logger.info("AspectJ Test: " + joinPoint.getSignature().toShortString());
     }
 
     @Before("PostMapping()")
     public void beforePostMapping(JoinPoint joinPoint){
-        logger.info("=====================AspectJ Test: PostMapping started");
+        logger.info("AspectJ Test: PostMapping started");
+        logger.info("AspectJ Test: " + joinPoint.getSignature().toShortString());
     }
-
-
-
 }
